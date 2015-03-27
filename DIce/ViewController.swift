@@ -1,25 +1,20 @@
-//
-//  ViewController.swift
-//  DIce
-//
-//  Created by Will Benyon on 27/03/2015.
-//  Copyright (c) 2015 Will Benyon. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var diceValue: UILabel!
+
+    let presentationModel = DicePresentationModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        presentationModel.onDiceValueUpdated { [weak self] (newValue: String) -> () in
+            self?.diceValue.text = newValue
+            return
+        }
 
+        presentationModel.roll()
+    }
 
 }
-
