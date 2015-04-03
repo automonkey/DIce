@@ -2,7 +2,7 @@ class DIceAssembly : TyphoonAssembly {
 
     dynamic func viewController() -> AnyObject {
 
-        return TyphoonDefinition.withClass(ViewController.self) {
+        return TyphoonDefinition.withClass(DiceRollViewController.self) {
             (definition) in
 
             definition.injectProperty("presentationModel", with:self.dicePresentationModel())

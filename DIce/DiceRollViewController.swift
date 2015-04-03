@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class DiceRollViewController: UIViewController {
 
     @IBOutlet weak var diceValue: UILabel!
 

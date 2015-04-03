@@ -11,7 +11,7 @@
 		440398D6551ACAD7BB7B6CDE /* DicePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44039D456E8DCBDE6D035E17 /* DicePresentationModel.swift */; };
 		44039E9E7748DF679C0AF323 /* DIceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44039F8AA08058030686F81E /* DIceAssembly.swift */; };
 		7EBF8E2D1AC6099E006DDA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF8E2C1AC6099E006DDA80 /* AppDelegate.swift */; };
-		7EBF8E2F1AC6099E006DDA80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF8E2E1AC6099E006DDA80 /* ViewController.swift */; };
+		7EBF8E2F1AC6099E006DDA80 /* DiceRollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF8E2E1AC6099E006DDA80 /* DiceRollViewController.swift */; };
 		7EBF8E321AC6099E006DDA80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF8E301AC6099E006DDA80 /* Main.storyboard */; };
 		7EBF8E341AC6099E006DDA80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF8E331AC6099E006DDA80 /* Images.xcassets */; };
 		7EBF8E371AC6099E006DDA80 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF8E351AC6099E006DDA80 /* LaunchScreen.xib */; };
@@ -38,7 +38,7 @@
 		7EBF8E271AC6099E006DDA80 /* DIce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DIce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBF8E2B1AC6099E006DDA80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBF8E2C1AC6099E006DDA80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7EBF8E2E1AC6099E006DDA80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7EBF8E2E1AC6099E006DDA80 /* DiceRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollViewController.swift; sourceTree = "<group>"; };
 		7EBF8E311AC6099E006DDA80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EBF8E331AC6099E006DDA80 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7EBF8E361AC6099E006DDA80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				7EBF8E2C1AC6099E006DDA80 /* AppDelegate.swift */,
-				7EBF8E2E1AC6099E006DDA80 /* ViewController.swift */,
+				7EBF8E2E1AC6099E006DDA80 /* DiceRollViewController.swift */,
 				7EBF8E301AC6099E006DDA80 /* Main.storyboard */,
 				7EBF8E331AC6099E006DDA80 /* Images.xcassets */,
 				7EBF8E351AC6099E006DDA80 /* LaunchScreen.xib */,
@@ -282,7 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EBF8E2F1AC6099E006DDA80 /* ViewController.swift in Sources */,
+				7EBF8E2F1AC6099E006DDA80 /* DiceRollViewController.swift in Sources */,
 				7EBF8E2D1AC6099E006DDA80 /* AppDelegate.swift in Sources */,
 				44039340DFB37573C1D800E7 /* DiceRollGenerator.swift in Sources */,
 				440398D6551ACAD7BB7B6CDE /* DicePresentationModel.swift in Sources */,
