@@ -4,17 +4,17 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var diceValue: UILabel!
 
-    let presentationModel = DicePresentationModel()
+    var presentationModel:DicePresentationModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        presentationModel.onDiceValueUpdated { [weak self] (newValue: String) -> () in
+        presentationModel!.onDiceValueUpdated { [weak self] (newValue: String) -> () in
             self?.diceValue.text = newValue
             return
         }
 
-        presentationModel.roll()
+        presentationModel!.roll()
     }
 
 }
