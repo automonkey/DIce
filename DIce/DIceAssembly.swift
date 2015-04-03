@@ -16,7 +16,11 @@ class DIceAssembly : TyphoonAssembly {
         return TyphoonDefinition.withClass(DicePresentationModel.self) {
             (definition) in
 
-            definition.injectProperty("diceRollGenerator", with:DiceRollGenerator())
+            definition.useInitializer("initWithDiceRollGenerator:") {
+                (initializer) in
+
+                initializer.injectParameterWith(DiceRollGenerator())
+            }
         }
     }
 
