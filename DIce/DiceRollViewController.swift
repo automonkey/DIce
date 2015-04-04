@@ -1,20 +1,21 @@
 import UIKit
 
-class DiceRollViewController: UIViewController {
+class DiceRollViewController: UIViewController, DiceViewUpdating {
 
     @IBOutlet weak var diceValue: UILabel!
 
-    var presentationModel:DicePresentationModel?
+    var presentationModel: DicePresentationModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        presentationModel!.onDiceValueUpdated { [weak self] (newValue: String) -> () in
-            self?.diceValue.text = newValue
-            return
-        }
+        presentationModel!.setView(self)
 
         presentationModel!.roll()
+    }
+
+    func setRollValue(value: String) {
+        self.diceValue.text = value
     }
 
 }

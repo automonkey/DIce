@@ -1,21 +1,25 @@
 import Foundation
 
+protocol DiceViewUpdating : class {
+    func setRollValue(value:String)
+}
+
 class DicePresentationModel : NSObject {
 
-    let diceRollGenerator:DiceRollGenerator
-    var onDiceValueUpdatedCallback:((diceValue: String) -> ())?
+    let diceRollGenerator: DiceRollGenerator
+    weak var view: DiceViewUpdating?
 
     init(diceRollGenerator:DiceRollGenerator) {
         self.diceRollGenerator = diceRollGenerator
     }
 
-    func onDiceValueUpdated(callback: (diceValue: String) -> ()) {
-        onDiceValueUpdatedCallback = callback
+    func setView(view: DiceViewUpdating) {
+        self.view = view
     }
 
     func roll() {
         let newValue = String(format: "%d", diceRollGenerator.generateRoll())
-        onDiceValueUpdatedCallback?(diceValue: newValue)
+        view?.setRollValue(newValue)
     }
 
 }
