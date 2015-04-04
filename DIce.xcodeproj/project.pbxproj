@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44039320C5184F0B6CDD13EB /* DiceRollGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403954B1442450346421B2E /* DiceRollGenerator.swift */; };
 		44039340DFB37573C1D800E7 /* DiceRollGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403954B1442450346421B2E /* DiceRollGenerator.swift */; };
+		44039416162FB245C7EEE482 /* DicePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44039D456E8DCBDE6D035E17 /* DicePresentationModel.swift */; };
 		440398D6551ACAD7BB7B6CDE /* DicePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44039D456E8DCBDE6D035E17 /* DicePresentationModel.swift */; };
 		44039E9E7748DF679C0AF323 /* DIceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44039F8AA08058030686F81E /* DIceAssembly.swift */; };
 		7EBF8E2D1AC6099E006DDA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF8E2C1AC6099E006DDA80 /* AppDelegate.swift */; };
@@ -295,6 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EBF8E431AC6099E006DDA80 /* DIceTests.swift in Sources */,
+				44039416162FB245C7EEE482 /* DicePresentationModel.swift in Sources */,
+				44039320C5184F0B6CDD13EB /* DiceRollGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

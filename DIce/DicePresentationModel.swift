@@ -6,10 +6,10 @@ protocol DiceViewUpdating : class {
 
 class DicePresentationModel : NSObject {
 
-    let diceRollGenerator: DiceRollGenerator
+    let diceRollGenerator: DiceRollGeneration
     weak var view: DiceViewUpdating?
 
-    init(diceRollGenerator:DiceRollGenerator) {
+    init(diceRollGenerator: DiceRollGeneration) {
         self.diceRollGenerator = diceRollGenerator
     }
 
