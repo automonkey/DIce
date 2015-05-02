@@ -18,6 +18,7 @@
 		7EBF8E341AC6099E006DDA80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF8E331AC6099E006DDA80 /* Images.xcassets */; };
 		7EBF8E371AC6099E006DDA80 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF8E351AC6099E006DDA80 /* LaunchScreen.xib */; };
 		7EBF8E431AC6099E006DDA80 /* PresentationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF8E421AC6099E006DDA80 /* PresentationModelTests.swift */; };
+		7EE6CD1B1AF4BDC600BA78FD /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6CD1A1AF4BDC600BA78FD /* DieView.swift */; };
 		E91450A14129794DEB34CB5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA6194B7865823A8701B80B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		7EBF8E3C1AC6099E006DDA80 /* DIceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DIceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBF8E411AC6099E006DDA80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBF8E421AC6099E006DDA80 /* PresentationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModelTests.swift; sourceTree = "<group>"; };
+		7EE6CD1A1AF4BDC600BA78FD /* DieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
 		CBCB9D0366CD8ECD0086B5DF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EAA6194B7865823A8701B80B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				44039D456E8DCBDE6D035E17 /* DicePresentationModel.swift */,
 				44039F8AA08058030686F81E /* DIceAssembly.swift */,
 				7E35E0E71AC6C58B000BB68E /* DIce-Bridging-Header.h */,
+				7EE6CD1A1AF4BDC600BA78FD /* DieView.swift */,
 			);
 			path = DIce;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				44039340DFB37573C1D800E7 /* DiceRollGenerator.swift in Sources */,
 				440398D6551ACAD7BB7B6CDE /* DicePresentationModel.swift in Sources */,
 				44039E9E7748DF679C0AF323 /* DIceAssembly.swift in Sources */,
+				7EE6CD1B1AF4BDC600BA78FD /* DieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
