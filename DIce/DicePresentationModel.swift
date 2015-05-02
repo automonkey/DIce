@@ -1,7 +1,7 @@
 import Foundation
 
 protocol DiceViewUpdating : class {
-    func setRollValue(value:String)
+    func setRollValue(value:Int)
 }
 
 class DicePresentationModel : NSObject {
@@ -18,8 +18,7 @@ class DicePresentationModel : NSObject {
     }
 
     func roll() {
-        let newValue = String(format: "%d", diceRollGenerator.generateRoll())
-        view?.setRollValue(newValue)
+        view?.setRollValue(diceRollGenerator.generateRoll())
     }
 
 }

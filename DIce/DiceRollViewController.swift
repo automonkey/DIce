@@ -2,13 +2,14 @@ import UIKit
 
 class DiceRollViewController: UIViewController, DiceViewUpdating {
 
-    @IBOutlet weak var diceValue: UILabel!
+    @IBOutlet weak var dieView: DieView!
 
     @IBAction func roll(sender: AnyObject) {
         presentationModel?.roll()
     }
 
-    var presentationModel: DicePresentationModel?
+    var presentationModel:DicePresentationModel?
+    var dieFaceModelGenerator:DieFaceModelGenerator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +17,10 @@ class DiceRollViewController: UIViewController, DiceViewUpdating {
         presentationModel!.setView(self)
     }
 
-    func setRollValue(value: String) {
-        self.diceValue.text = value
+    func setRollValue(value: Int) {
+        if let model = dieFaceModelGenerator?.generateModelForValue(value) {
+            dieView.updateViewModel(model)
+        }
     }
 
 }

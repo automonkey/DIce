@@ -6,7 +6,7 @@ class DIceAssembly : TyphoonAssembly {
             (definition) in
 
             definition.injectProperty("presentationModel", with:self.dicePresentationModel())
-
+            definition.injectProperty("dieFaceModelGenerator", with:self.dieFaceModelGenerator())
         }
 
     }
@@ -19,9 +19,17 @@ class DIceAssembly : TyphoonAssembly {
             definition.useInitializer("initWithDiceRollGenerator:") {
                 (initializer) in
 
-                initializer.injectParameterWith(DiceRollGenerator())
+                initializer.injectParameterWith(self.diceRollGenerator())
             }
         }
+    }
+
+    dynamic func diceRollGenerator() -> AnyObject {
+        return DiceRollGenerator()
+    }
+
+    dynamic func dieFaceModelGenerator() -> AnyObject {
+        return DieFaceModelGenerator()
     }
 
 }
