@@ -2,58 +2,46 @@ import Foundation
 
 class DieView : UIView {
 
-    let borderWidth:CGFloat = 4
-
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-
-        setOutline()
-    }
-
-    private func setOutline() {
-        layer.borderWidth = 4
-        layer.borderColor = UIColor.blackColor().CGColor
-        layer.cornerRadius = 30
-    }
-
     override func drawRect(rect: CGRect) {
-        let dieFaceRect = CGRectInset(rect, borderWidth, borderWidth)
+        let dieFaceWidth = min(rect.width, rect.height)
 
-        for dotRect in getSpotRects(rect) {
-            drawSpot(dotRect)
-        }
+        let dieFaceRect = CGRectInset(rect, (rect.width - dieFaceWidth)/2, (rect.height - dieFaceWidth)/2)
+
+        drawOutline(dieFaceRect)
+        drawDots(dieFaceRect.rectByInsetting(dx: 5.0, dy: 5.0))
     }
 
-    private func getSpotRects(rect: CGRect) -> [CGRect] {
-        let cols = 3
-        let rows = 3
+    private func drawOutline(dieFaceRect:CGRect) {
+        let dieFaceRoundedRect = UIBezierPath(roundedRect: dieFaceRect, cornerRadius: 30)
+        dieFaceRoundedRect.stroke()
+    }
 
-        var dotRects = [CGRect]()
-
-        let dots:[(CGFloat,CGFloat)] = [
-            (0,0),(2,0),
-            (0,1),(1,1),(2,1),
-            (0,2),(2,2)
+    private func drawDots(faceRect:CGRect) {
+        let dotModel = [
+            [true, false, true],
+            [true, false, true],
+            [true, false, true]
         ]
 
-        let dotRectWidth:CGFloat = rect.width/3
-        let dotRectHeight:CGFloat = rect.height/3
+        let spotPadding:CGFloat = 10.0
 
-        for dot in dots {
-            let xorigin = dot.0 * dotRectWidth
-            let yorigin = dot.1 * dotRectHeight
-            dotRects.append(CGRect(x: xorigin, y: yorigin, width: dotRectWidth, height: dotRectHeight))
+        let dotRectWidth:CGFloat = (faceRect.width - (4 * spotPadding))/3
+
+        for row in 0...2 {
+            for col in 0...2 {
+                if dotModel[row][col] {
+                    let xorigin = faceRect.origin.x + (CGFloat(col) * dotRectWidth) + (CGFloat(col + 1) * spotPadding)
+                    let yorigin = faceRect.origin.y + (CGFloat(row) * dotRectWidth) + (CGFloat(row + 1) * spotPadding)
+                    drawDot(CGRect(x: xorigin, y: yorigin, width: dotRectWidth, height: dotRectWidth))
+                }
+            }
         }
-
-        return dotRects
     }
 
-    private func drawSpot(rect: CGRect) {
+    private func drawDot(dotRect:CGRect) {
         let lineWidth:CGFloat = 2.0;
-        let borderRect = CGRectInset(rect, lineWidth * 0.5, lineWidth * 0.5)
+        let borderRect = CGRectInset(dotRect, lineWidth * 0.5, lineWidth * 0.5)
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
-        CGContextSetFillColorWithColor(context, UIColor.blackColor().CGColor)
         CGContextSetLineWidth(context, lineWidth)
         CGContextFillEllipseInRect (context, borderRect)
         CGContextStrokeEllipseInRect(context, borderRect)

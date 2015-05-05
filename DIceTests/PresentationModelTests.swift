@@ -11,9 +11,9 @@ class PresentationModelTests: XCTestCase {
     }
 
     class StubView : DiceViewUpdating {
-        var lastRollValue : String?
+        var lastRollValue : Int?
 
-        func setRollValue(value:String) {
+        func setRollValue(value:Int) {
             lastRollValue = value
         }
     }
@@ -31,11 +31,12 @@ class PresentationModelTests: XCTestCase {
     }
 
     func testRollShouldGenerateValueAndReportToView() {
-        stubRollGenerator.nextRollValue = 5
+        let testRollValue = 5
+        stubRollGenerator.nextRollValue = testRollValue
 
         dicePresentationModel!.roll()
 
-        XCTAssertEqual(view!.lastRollValue!, "5")
+        XCTAssertEqual(view!.lastRollValue!, testRollValue)
     }
 
 }

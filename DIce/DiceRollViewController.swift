@@ -2,6 +2,7 @@ import UIKit
 
 class DiceRollViewController: UIViewController, DiceViewUpdating {
 
+    @IBOutlet weak var dieView: DieView!
 
     @IBAction func roll(sender: AnyObject) {
         presentationModel?.roll()
@@ -15,7 +16,7 @@ class DiceRollViewController: UIViewController, DiceViewUpdating {
         presentationModel!.setView(self)
     }
 
-    func setRollValue(value: String) {
+    func setRollValue(value: Int) {
     }
 
 }
