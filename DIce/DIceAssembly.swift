@@ -19,9 +19,17 @@ class DIceAssembly : TyphoonAssembly {
             definition.useInitializer("initWithDiceRollGenerator:") {
                 (initializer) in
 
-                initializer.injectParameterWith(DiceRollGenerator())
+                initializer.injectParameterWith(self.diceRollGenerator())
             }
         }
+    }
+
+    dynamic func diceRollGenerator() -> AnyObject {
+        return DiceRollGenerator()
+    }
+
+    dynamic func dieFaceModelGenerator() -> AnyObject {
+        return dieFaceModelGenerator()
     }
 
 }
