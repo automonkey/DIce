@@ -14,9 +14,9 @@ class DieView : UIView {
     }
 
     override func drawRect(rect: CGRect) {
-        let dieFaceWidth = min(rect.width, rect.height)
+        let dieFaceWidth = min(bounds.width, bounds.height)
 
-        let dieFaceRect = CGRectInset(rect, (rect.width - dieFaceWidth)/2, (rect.height - dieFaceWidth)/2)
+        let dieFaceRect = CGRectInset(bounds, (bounds.width - dieFaceWidth)/2, (bounds.height - dieFaceWidth)/2)
 
         drawOutline(dieFaceRect)
         drawDots(dieFaceRect.rectByInsetting(dx: 5.0, dy: 5.0))
