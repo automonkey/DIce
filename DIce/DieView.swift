@@ -3,9 +3,9 @@ import Foundation
 class DieView : UIView {
 
     private var dotModel = [
-        [true, false, true],
-        [true, false, true],
-        [true, false, true]
+        [true, false, false],
+        [false, true, false],
+        [false, false, true]
     ]
 
     func updateViewModel(viewModel:[[Bool]]) {
