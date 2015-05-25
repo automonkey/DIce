@@ -19,7 +19,6 @@
 		7EBF8E2F1AC6099E006DDA80 /* DiceRollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF8E2E1AC6099E006DDA80 /* DiceRollViewController.swift */; };
 		7EBF8E321AC6099E006DDA80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF8E301AC6099E006DDA80 /* Main.storyboard */; };
 		7EBF8E341AC6099E006DDA80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF8E331AC6099E006DDA80 /* Images.xcassets */; };
-		7EBF8E371AC6099E006DDA80 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF8E351AC6099E006DDA80 /* LaunchScreen.xib */; };
 		7EBF8E431AC6099E006DDA80 /* PresentationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF8E421AC6099E006DDA80 /* PresentationModelTests.swift */; };
 		7EE6CD1B1AF4BDC600BA78FD /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6CD1A1AF4BDC600BA78FD /* DieView.swift */; };
 		E91450A14129794DEB34CB5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA6194B7865823A8701B80B /* libPods.a */; };
@@ -49,7 +48,6 @@
 		7EBF8E2E1AC6099E006DDA80 /* DiceRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollViewController.swift; sourceTree = "<group>"; };
 		7EBF8E311AC6099E006DDA80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EBF8E331AC6099E006DDA80 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7EBF8E361AC6099E006DDA80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7EBF8E3C1AC6099E006DDA80 /* DIceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DIceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBF8E411AC6099E006DDA80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBF8E421AC6099E006DDA80 /* PresentationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModelTests.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				7EBF8E2E1AC6099E006DDA80 /* DiceRollViewController.swift */,
 				7EBF8E301AC6099E006DDA80 /* Main.storyboard */,
 				7EBF8E331AC6099E006DDA80 /* Images.xcassets */,
-				7EBF8E351AC6099E006DDA80 /* LaunchScreen.xib */,
 				7EBF8E2A1AC6099E006DDA80 /* Supporting Files */,
 				4403954B1442450346421B2E /* DiceRollGenerator.swift */,
 				44039D456E8DCBDE6D035E17 /* DicePresentationModel.swift */,
@@ -242,7 +239,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EBF8E321AC6099E006DDA80 /* Main.storyboard in Resources */,
-				7EBF8E371AC6099E006DDA80 /* LaunchScreen.xib in Resources */,
 				7EBF8E341AC6099E006DDA80 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,14 +331,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		7EBF8E351AC6099E006DDA80 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7EBF8E361AC6099E006DDA80 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -428,6 +416,7 @@
 			baseConfigurationReference = 260D9B3A9B698DBB1CA4114E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DIce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,6 +429,7 @@
 			baseConfigurationReference = CBCB9D0366CD8ECD0086B5DF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DIce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
