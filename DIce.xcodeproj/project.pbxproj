@@ -42,7 +42,7 @@
 		7E35E0E71AC6C58B000BB68E /* DIce-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DIce-Bridging-Header.h"; sourceTree = "<group>"; };
 		7E62A8371AF9407E001FD174 /* DieFaceModelGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieFaceModelGenerator.swift; sourceTree = "<group>"; };
 		7E62A83A1AF9431C001FD174 /* DieFaceModelGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieFaceModelGeneratorTests.swift; sourceTree = "<group>"; };
-		7EBF8E271AC6099E006DDA80 /* DIce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DIce.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EBF8E271AC6099E006DDA80 /* Dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EBF8E2B1AC6099E006DDA80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBF8E2C1AC6099E006DDA80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EBF8E2E1AC6099E006DDA80 /* DiceRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		7EBF8E281AC6099E006DDA80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7EBF8E271AC6099E006DDA80 /* DIce.app */,
+				7EBF8E271AC6099E006DDA80 /* Dice.app */,
 				7EBF8E3C1AC6099E006DDA80 /* DIceTests.xctest */,
 			);
 			name = Products;
@@ -175,7 +175,7 @@
 			);
 			name = DIce;
 			productName = DIce;
-			productReference = 7EBF8E271AC6099E006DDA80 /* DIce.app */;
+			productReference = 7EBF8E271AC6099E006DDA80 /* Dice.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7EBF8E3B1AC6099E006DDA80 /* DIceTests */ = {
@@ -419,7 +419,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DIce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Dice;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wbenyon/Projects/Personal/DIce/DIce/DIce-Bridging-Header.h";
 			};
 			name = Debug;
@@ -432,7 +432,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DIce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Dice;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wbenyon/Projects/Personal/DIce/DIce/DIce-Bridging-Header.h";
 			};
 			name = Release;
