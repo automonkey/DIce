@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B36F67EB310249F2501CDA0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7067E5F505C53D0AC8F437D4 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		44039320C5184F0B6CDD13EB /* DiceRollGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403954B1442450346421B2E /* DiceRollGenerator.swift */; };
 		44039340DFB37573C1D800E7 /* DiceRollGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403954B1442450346421B2E /* DiceRollGenerator.swift */; };
 		44039416162FB245C7EEE482 /* DicePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44039D456E8DCBDE6D035E17 /* DicePresentationModel.swift */; };
@@ -21,7 +22,6 @@
 		7EBF8E341AC6099E006DDA80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF8E331AC6099E006DDA80 /* Images.xcassets */; };
 		7EBF8E431AC6099E006DDA80 /* PresentationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF8E421AC6099E006DDA80 /* PresentationModelTests.swift */; };
 		7EE6CD1B1AF4BDC600BA78FD /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6CD1A1AF4BDC600BA78FD /* DieView.swift */; };
-		E91450A14129794DEB34CB5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA6194B7865823A8701B80B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,7 @@
 		4403954B1442450346421B2E /* DiceRollGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceRollGenerator.swift; sourceTree = "<group>"; };
 		44039D456E8DCBDE6D035E17 /* DicePresentationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DicePresentationModel.swift; sourceTree = "<group>"; };
 		44039F8AA08058030686F81E /* DIceAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIceAssembly.swift; sourceTree = "<group>"; };
-		7E35E0E71AC6C58B000BB68E /* DIce-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DIce-Bridging-Header.h"; sourceTree = "<group>"; };
+		7067E5F505C53D0AC8F437D4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E62A8371AF9407E001FD174 /* DieFaceModelGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieFaceModelGenerator.swift; sourceTree = "<group>"; };
 		7E62A83A1AF9431C001FD174 /* DieFaceModelGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieFaceModelGeneratorTests.swift; sourceTree = "<group>"; };
 		7EBF8E271AC6099E006DDA80 /* Dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +53,6 @@
 		7EBF8E421AC6099E006DDA80 /* PresentationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModelTests.swift; sourceTree = "<group>"; };
 		7EE6CD1A1AF4BDC600BA78FD /* DieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
 		CBCB9D0366CD8ECD0086B5DF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		EAA6194B7865823A8701B80B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E91450A14129794DEB34CB5A /* libPods.a in Frameworks */,
+				0B36F67EB310249F2501CDA0 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +86,7 @@
 		2B043FA0B33026EC54108B88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EAA6194B7865823A8701B80B /* libPods.a */,
+				7067E5F505C53D0AC8F437D4 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -123,7 +122,6 @@
 				4403954B1442450346421B2E /* DiceRollGenerator.swift */,
 				44039D456E8DCBDE6D035E17 /* DicePresentationModel.swift */,
 				44039F8AA08058030686F81E /* DIceAssembly.swift */,
-				7E35E0E71AC6C58B000BB68E /* DIce-Bridging-Header.h */,
 				7E62A8371AF9407E001FD174 /* DieFaceModelGenerator.swift */,
 				7EE6CD1A1AF4BDC600BA78FD /* DieView.swift */,
 			);
@@ -168,6 +166,7 @@
 				7EBF8E241AC6099E006DDA80 /* Frameworks */,
 				7EBF8E251AC6099E006DDA80 /* Resources */,
 				5FB842C4A92621F09A5BF336 /* Copy Pods Resources */,
+				C7E421281E6845CBFD8FCB65 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -266,6 +265,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7E421281E6845CBFD8FCB65 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F8DB0B918B05855A7C37B6B4 /* Check Pods Manifest.lock */ = {
@@ -420,7 +434,7 @@
 				INFOPLIST_FILE = DIce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Dice;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wbenyon/Projects/Personal/DIce/DIce/DIce-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -433,7 +447,7 @@
 				INFOPLIST_FILE = DIce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Dice;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wbenyon/Projects/Personal/DIce/DIce/DIce-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

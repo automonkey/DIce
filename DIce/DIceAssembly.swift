@@ -1,3 +1,5 @@
+import Typhoon
+
 class DIceAssembly : TyphoonAssembly {
 
     dynamic func viewController() -> AnyObject {

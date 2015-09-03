@@ -1,12 +1,15 @@
 PODS:
+  - SnapKit (0.13.0)
   - Typhoon (HEAD based on 3.2.8):
     - Typhoon/no-arc (= HEAD based on 3.2.8)
   - Typhoon/no-arc (HEAD based on 3.2.8)
 
 DEPENDENCIES:
+  - SnapKit (~> 0.13.0)
   - Typhoon (HEAD)
 
 SPEC CHECKSUMS:
+  SnapKit: 69fe274c71511df89a5591c11437a8b826bfa9eb
   Typhoon: 3059adee62703d9eb595bf3c16a75484bd5d024f
 
 COCOAPODS: 0.38.2
