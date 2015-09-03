@@ -45,6 +45,16 @@ TYPHOON_LINK_CATEGORY(TyphoonDefinition_Infrastructure)
     }];
 }
 
++ (instancetype)configDefinitionWithName:(NSString *)fileName bundle:(NSBundle *)fileBundle {
+    return [self withClass:[TyphoonConfigPostProcessor class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectMethod:@selector(useResourceWithName:bundle:) parameters:^(TyphoonMethod *method) {
+            [method injectParameterWith:fileName];
+            [method injectParameterWith:fileBundle];
+        }];
+        definition.key = [NSString stringWithFormat:@"%@-%@", NSStringFromClass(definition.class), fileName];
+    }];
+}
+
 + (instancetype)configDefinitionWithPath:(NSString *)filePath
 {
     return [self withClass:[TyphoonConfigPostProcessor class] configuration:^(TyphoonDefinition *definition) {
@@ -64,7 +74,7 @@ TYPHOON_LINK_CATEGORY(TyphoonDefinition_Infrastructure)
     if (self) {
         _type = clazz;
         _injectedProperties = [[NSMutableSet alloc] init];
-        _injectedMethods = [[NSMutableSet alloc] init];
+        _injectedMethods = [[NSMutableOrderedSet alloc] init];
         _key = [key copy];
         _scope = TyphoonScopeObjectGraph;
         self.autoInjectionVisibility = TyphoonAutoInjectVisibilityDefault;
@@ -117,6 +127,11 @@ TYPHOON_LINK_CATEGORY(TyphoonDefinition_Infrastructure)
 {
     if (_type == nil) {
         [NSException raise:NSInvalidArgumentException format:@"Property 'clazz' is required."];
+    }
+
+    BOOL hasAppropriateSuper = [_type isSubclassOfClass:[NSObject class]] || [_type isSubclassOfClass:[NSProxy class]];
+    if (!hasAppropriateSuper) {
+        [NSException raise:NSInvalidArgumentException format:@"Subclass of NSProxy or NSObject is required."];
     }
 }
 

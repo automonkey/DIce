@@ -50,33 +50,30 @@
 @end
 
 
-@implementation TyphoonTypeDescriptor {
+@implementation TyphoonTypeDescriptor
+{
     NSString *_typeCode;
 }
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Class Methods
+//-------------------------------------------------------------------------------------------
 
 + (TyphoonTypeDescriptor *)descriptorWithEncodedType:(const char *)encodedType
 {
-    return [[[self class] alloc] initWithTypeCode:[NSString stringWithCString:encodedType encoding:NSUTF8StringEncoding]];
+    return [[self alloc] initWithTypeCode:[NSString stringWithCString:encodedType encoding:NSUTF8StringEncoding]];
 }
 
 + (TyphoonTypeDescriptor *)descriptorWithTypeCode:(NSString *)typeCode
 {
-    return [[[self class] alloc] initWithTypeCode:typeCode];
+    return [[self alloc] initWithTypeCode:typeCode];
 }
 
-+ (TyphoonTypeDescriptor *)descriptorWithClassOrProtocol:(id)classOrProtocol
-{
-    if (IsClass(classOrProtocol)) {
-        return [self descriptorWithTypeCode:[NSString stringWithFormat:@"T@%@", NSStringFromClass(classOrProtocol)]];
-    }
-    return [self descriptorWithTypeCode:[NSString stringWithFormat:@"T@<%@>", NSStringFromProtocol(classOrProtocol)]];
-}
+
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Initialization & Destruction
+//-------------------------------------------------------------------------------------------
 
 - (id)initWithTypeCode:(NSString *)typeCode
 {
@@ -84,24 +81,32 @@
     if (self) {
         if ([typeCode hasPrefix:@"T@"]) {
             _isPrimitive = NO;
-            typeCode = [typeCode stringByReplacingOccurrencesOfString:@"T@" withString:@""];
-            typeCode = [typeCode stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-            if ([typeCode hasPrefix:@"<"] && [typeCode hasSuffix:@">"]) {
-                typeCode = [typeCode stringByReplacingOccurrencesOfString:@"<" withString:@""];
-                typeCode = [typeCode stringByReplacingOccurrencesOfString:@">" withString:@""];
-                _protocol = NSProtocolFromString(typeCode);
+            
+            NSRange typeNameRange = NSMakeRange(2, typeCode.length - 2);
+            
+            NSRange quoteRange = [typeCode rangeOfString:@"\"" options:0 range:typeNameRange locale:nil];
+            if (quoteRange.length > 0) {
+                typeNameRange.location = quoteRange.location + 1;
+                typeNameRange.length = typeCode.length - typeNameRange.location;
+                
+                NSRange range = [typeCode rangeOfString:@"\"" options:0 range:typeNameRange locale:nil];
+                typeNameRange.length = range.location - typeNameRange.location;
             }
-            else if ([typeCode hasSuffix:@">"]) {
-                NSArray *components = [typeCode componentsSeparatedByString:@"<"];
-                NSString *protocol = [components[1] stringByReplacingOccurrencesOfString:@">" withString:@""];
-                NSString *class = components[0];
-
-                _protocol = NSProtocolFromString(protocol);
-                _typeBeingDescribed = TyphoonClassFromString(class);
+            
+            NSRange protocolRange = [typeCode rangeOfString:@"<" options:0 range:typeNameRange locale:nil];
+            if (protocolRange.length > 0) {
+                NSRange range = [typeCode rangeOfString:@">" options:0 range:typeNameRange locale:nil];
+                
+                typeNameRange.length = protocolRange.location - typeNameRange.location;
+                
+                protocolRange.location += 1;
+                protocolRange.length = range.location - protocolRange.location;
+                
+                _declaredProtocol = [typeCode substringWithRange:protocolRange];
             }
-            else {
-                _typeBeingDescribed = TyphoonClassFromString(typeCode);
-            }
+            
+            NSString *typeName = [typeCode substringWithRange:typeNameRange];
+            _typeBeingDescribed = TyphoonClassFromString(typeName);
         }
         else {
             _isPrimitive = YES;
@@ -115,6 +120,7 @@
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Interface Methods
+//-------------------------------------------------------------------------------------------
 
 - (id)classOrProtocol
 {
@@ -122,7 +128,7 @@
         return _typeBeingDescribed;
     }
     else {
-        return _protocol;
+        return self.protocol;
     }
 }
 
@@ -132,7 +138,13 @@
 }
 
 //-------------------------------------------------------------------------------------------
-#pragma mark - Utility Methods
+#pragma mark - Overridden Methods
+//-------------------------------------------------------------------------------------------
+
+- (Protocol *)protocol
+{
+    return NSProtocolFromString(_declaredProtocol);
+}
 
 - (NSString *)description
 {
@@ -157,6 +169,7 @@
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Private Methods
+//-------------------------------------------------------------------------------------------
 
 - (void)parsePrimitiveType:(NSString *)typeCode
 {
@@ -171,8 +184,8 @@
 {
     if ([typeCode hasPrefix:@"["] && [typeCode hasSuffix:@"]"]) {
         _isArray = YES;
-        typeCode =
-            [[typeCode stringByReplacingOccurrencesOfString:@"[" withString:@""] stringByReplacingOccurrencesOfString:@"]" withString:@""];
+        typeCode = [[typeCode stringByReplacingOccurrencesOfString:@"[" withString:@""]
+            stringByReplacingOccurrencesOfString:@"]" withString:@""];
         NSScanner *scanner = [[NSScanner alloc] initWithString:typeCode];
         [scanner scanInt:&_arrayLength];
         typeCode = [typeCode stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
@@ -193,8 +206,8 @@
 {
     if ([typeCode hasPrefix:@"{"] && [typeCode hasSuffix:@"}"]) {
         _isStructure = YES;
-        typeCode =
-            [[typeCode stringByReplacingOccurrencesOfString:@"{" withString:@""] stringByReplacingOccurrencesOfString:@"}" withString:@""];
+        typeCode = [[typeCode stringByReplacingOccurrencesOfString:@"{" withString:@""]
+            stringByReplacingOccurrencesOfString:@"}" withString:@""];
         _structureTypeName = [typeCode copy];
     }
     return typeCode;
@@ -211,7 +224,8 @@
 
 - (TyphoonPrimitiveType)typeFromTypeCode:(NSString *)typeCode
 {
-    return (TyphoonPrimitiveType) [[[NSDictionary dictionaryWithTyphoonPrimitiveTypesAsStrings] objectForKey:typeCode] intValue];
+    return (TyphoonPrimitiveType)[[NSDictionary dictionaryWithTyphoonPrimitiveTypesAsStrings][typeCode]
+        intValue];
 }
 
 @end

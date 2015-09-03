@@ -29,8 +29,7 @@
 *
 * @code
 
-MyAssembly* assembly = [MyAssembly assembly];
-[[TyphoonAssemblyActivator withAssembly:assembly] activate];
+MyAssembly* assembly = [[MyAssembly new] activate];
 AnalyticsService* service = [assembly analyticsService];
 
 @endcode
@@ -50,5 +49,24 @@ AnalyticsService* service = [assembly analyticsService];
 * Returns the [TyphoonComponentFactory defaultFactory] posing as a TyphoonAssembly.
 */
 + (instancetype)defaultAssembly;
+
+
+/**
+ *  Activates the assembly. The concrete declared type of any collaborating assemblies will be used. If
+ * collaborating assemblies are backed by a protocol then they must be specified explicitly. 
+ *
+ * @see activateWithCollaboratingAssemblies
+ *
+ */
+- (instancetype)activate;
+
+/**
+ *  Activates the assembly, explicitly setting the types for collaborating assemblies.
+ *
+ *  @param assemblies The explicit types to be used for collaborating assemblies. For example if this assembly
+ * references another assembly of type NetworkProvider, specifying a subclass TestNetworkProvider will override
+ * the base type. If collaborating assemblies are backed by a protocol, they must be specified explicitly. 
+ */
+- (instancetype)activateWithCollaboratingAssemblies:(NSArray*)assemblies;
 
 @end

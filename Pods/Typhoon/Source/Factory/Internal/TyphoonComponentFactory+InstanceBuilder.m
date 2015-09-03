@@ -54,7 +54,7 @@ TYPHOON_LINK_CATEGORY(TyphoonComponentFactory_InstanceBuilder)
 - (id)initializeInstanceWithDefinition:(TyphoonDefinition *)definition args:(TyphoonRuntimeArguments *)args
 {
     __block id instance = [definition targetForInitializerWithFactory:self args:args];
-    if (definition.initializer) {
+    if (definition.initializer && instance) {
         BOOL isClass = IsClass(instance);
 
         TyphoonInjectionContext *context = [[TyphoonInjectionContext alloc] initWithFactory:self args:args
@@ -97,15 +97,6 @@ TYPHOON_LINK_CATEGORY(TyphoonComponentFactory_InstanceBuilder)
         return instance;
     }
     return [self buildInstanceWithDefinition:definition args:args];
-}
-
-- (void)registerInstance:(id)instance asSingletonForDefinition:(TyphoonDefinition *)definition
-{
-    if (definition.scope == TyphoonScopeSingleton || definition.scope == TyphoonScopeLazySingleton) {
-        [_singletons setObject:instance forKey:definition.key];
-    } else if (definition.scope == TyphoonScopeWeakSingleton) {
-        [_weakSingletons setObject:instance forKey:definition.key];
-    }
 }
 
 //-------------------------------------------------------------------------------------------
@@ -180,7 +171,7 @@ TYPHOON_LINK_CATEGORY(TyphoonComponentFactory_InstanceBuilder)
 {
     TyphoonInjectionContext *context = [[TyphoonInjectionContext alloc] initWithFactory:self args:args
         raiseExceptionIfCircular:NO];
-    context.destinationType = [instance typhoon_typeForPropertyWithName:property.propertyName];
+    context.destinationType = [instance typhoonTypeForPropertyNamed:property.propertyName];
     context.classUnderConstruction = [instance class];
 
     [property valueToInjectWithContext:context completion:^(id value) {
