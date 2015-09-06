@@ -9,6 +9,7 @@ class DIceAssembly : TyphoonAssembly {
 
             definition.injectProperty("presentationModel", with:self.dicePresentationModel())
             definition.injectProperty("dieFaceModelGenerator", with:self.dieFaceModelGenerator())
+            definition.injectProperty("dieView", with:self.dieView())
         }
 
     }
@@ -32,6 +33,10 @@ class DIceAssembly : TyphoonAssembly {
 
     dynamic func dieFaceModelGenerator() -> AnyObject {
         return DieFaceModelGenerator()
+    }
+
+    dynamic func dieView() -> AnyObject {
+        return DieView()
     }
 
 }
