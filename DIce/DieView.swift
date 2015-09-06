@@ -2,14 +2,25 @@ import UIKit
 
 class DieView : UIView {
 
+    init(dieFaceModelGenerator:DieFaceModelGenerator) {
+        self.dieFaceModelGenerator = dieFaceModelGenerator
+        super.init(frame: CGRectMake(0, 0, 0, 0))
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    private var dieFaceModelGenerator:DieFaceModelGenerator!
+
     private var dotModel = [
         [true, false, false],
         [false, true, false],
         [false, false, true]
     ]
 
-    func updateViewModel(viewModel:[[Bool]]) {
-        dotModel = viewModel
+    func updateValue(value:Int) {
+        dotModel = dieFaceModelGenerator.generateModelForValue(value)
         setNeedsDisplay()
     }
 

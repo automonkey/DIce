@@ -5,10 +5,9 @@ class DIceAssembly : TyphoonAssembly {
     dynamic func viewController() -> AnyObject {
 
         return TyphoonDefinition.withClass(DiceRollViewController.self) {
-            (definition) in
+            definition in
 
             definition.injectProperty("presentationModel", with:self.dicePresentationModel())
-            definition.injectProperty("dieFaceModelGenerator", with:self.dieFaceModelGenerator())
             definition.injectProperty("dieView", with:self.dieView())
         }
 
@@ -17,10 +16,10 @@ class DIceAssembly : TyphoonAssembly {
     dynamic func dicePresentationModel() -> AnyObject {
 
         return TyphoonDefinition.withClass(DicePresentationModel.self) {
-            (definition) in
+            definition in
 
             definition.useInitializer("initWithDiceRollGenerator:") {
-                (initializer) in
+                initializer in
 
                 initializer.injectParameterWith(self.diceRollGenerator())
             }
@@ -36,7 +35,16 @@ class DIceAssembly : TyphoonAssembly {
     }
 
     dynamic func dieView() -> AnyObject {
-        return DieView()
+
+        return TyphoonDefinition.withClass(DieView.self) {
+            definition in
+
+            definition.useInitializer("initWithDieFaceModelGenerator:") {
+                initializer in
+
+                initializer.injectParameterWith(self.dieFaceModelGenerator())
+            }
+        }
     }
 
 }

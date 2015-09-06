@@ -10,7 +10,6 @@ class DiceRollViewController: UIViewController, DiceViewUpdating {
     }
 
     var presentationModel:DicePresentationModel!
-    var dieFaceModelGenerator:DieFaceModelGenerator!
     var dieView:DieView!
 
     override func viewDidLoad() {
@@ -29,7 +28,7 @@ class DiceRollViewController: UIViewController, DiceViewUpdating {
     }
 
     func setRollValue(value: Int) {
-        dieView.updateViewModel(dieFaceModelGenerator.generateModelForValue(value))
+        dieView.updateValue(value)
     }
 
 }
